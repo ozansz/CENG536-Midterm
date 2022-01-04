@@ -1,9 +1,9 @@
-struct files_struct files = current->files;
+struct files_struct *files = current->files;
 
 for (size_t index = 0; index < files->next_fd; index++) {
     struct file *fd = files->fd[index]; 
 
-    if (fd->f_count == 0)
+    if ((NULL == fd) || (fd->f_count == 0))
         continue;
 
     struct dentry *dentry = file_dentry(fd);
@@ -26,4 +26,4 @@ for (size_t index = 0; index < NR_OPEN_DEFAULT; index++)
     files->fd = NULL;
 
 files->next_fd = 0;
-// files->count = 0;
+files->count = 0;
