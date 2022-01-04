@@ -1,0 +1,3 @@
+linux/fs/open.c
+
+SYSCALL_DEFINE1(close, unsigned int, fd)
