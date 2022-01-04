@@ -16,3 +16,5 @@ for (int fd = 0; fd < fip->fi_nfiles; fd++) {
     ufp->uf_flag = 0;
     fp->f_count--;
 }
+
+fip->fi_nfiles = 0;
